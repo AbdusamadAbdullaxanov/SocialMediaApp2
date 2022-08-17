@@ -1,0 +1,19 @@
+{% extends 'BasicPage.html' %}
+{% block content %}
+<div class="form-group">
+    {% if request.user.is_authenticated %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ create_posts }}
+        <br/>
+        <br/>
+        <button class="btn btn-outline-primary">Add Post</button>
+    </form>
+    {% else %}
+    <div class="container">
+        <h1 class="margin: 5px;">Unauthorized account!!!</h1>
+        <a href="{% url 'login' %}" class="btn btn-outline-warning">Please login to webpage to create post first...</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}

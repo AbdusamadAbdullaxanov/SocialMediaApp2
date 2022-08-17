@@ -1,0 +1,12 @@
+ {% extends 'BasicPage.html' %}
+{% block content %}
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ register_form.as_p }}
+        <br>
+        <br>
+        <button class="btn btn-outline-primary">Register</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'BasicPage.html' %}
+{% block content %}
+<br/>
+<br/>
+<div class="container" style="background-color: lightskyblue;">
+    <br>
+    <br>
+    <br>
+    <ul>
+        {% for post in object_list %}
+        <li>
+            <a href="{% url 'user_information' post.pk %}">{{ post.user }}</a> -
+            {% if post.user == user.username %}
+            <a class="btn btn-outline-warning" href="{% url 'update' post.pk %}">Edit</a>
+            <a class="btn btn-outline-danger" href="{% url 'delete' post.pk %}"><small>Delete post</small></a><br/>
+            {% endif %}
+            <p>{{ post.text|safe }}</p><br/><strong>{{post.date_created}}</strong>
+        </li>
+        {% endfor %}
+    </ul>
+    <br>
+</div>
+{% endblock %}

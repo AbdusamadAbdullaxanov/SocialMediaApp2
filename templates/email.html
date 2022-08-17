@@ -1,0 +1,12 @@
+{% extends 'BasicPage.html' %}
+
+
+{% block content %}
+<div class="container">
+    <form class="form-control">
+        {% csrf_token %}
+        {{ email_form.as_p }}
+        <button class="btn btn-success">Send</button>
+    </form>
+</div>
+{% endblock %}

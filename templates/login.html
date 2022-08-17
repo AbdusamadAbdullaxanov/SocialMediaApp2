@@ -1,0 +1,18 @@
+{% extends 'BasicPage.html' %}
+
+
+{% block content %}
+<div class="container">
+    <form class="form-group" method="post">
+        {% csrf_token %}
+        <h4>Username</h4>
+        {{ login_form.username }}
+        <br>
+        <h4>Password</h4>
+        {{ login_form.password }}
+        <br>
+        <br>
+        <button class="btn btn-secondary" style="margin: 1">Login</button>
+    </form>
+</div>
+{% endblock %}
